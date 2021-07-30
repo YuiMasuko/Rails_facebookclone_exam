@@ -1,14 +1,17 @@
 <p id="notice"><%= notice %></p>
-
+<div class="picture_index">
 <h1>Picture一覧</h1>
-
+</div>
+<%= link_to '投稿する！', new_picture_path %>
 <table>
   <thead>
+  <div class="head_name">
     <tr>
-      <th>Image</th>
+      <th></th>
       <th>Content</th>
       <th>Name</th>
     </tr>
+  </div>
   </thead>
 
   <tbody>
@@ -17,14 +20,16 @@
         <td><%=  image_tag picture.image.url %></td>
         <td><%= picture.content %></td>
         <td><%= picture.user.name %></td>
-        <td><%= link_to 'Show', picture %></td>
-        <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
-        <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <tr>
+        <td class="index_link">
+          <%= link_to 'Show　', picture %>
+          <%= link_to 'Edit　', edit_picture_path(picture) %>
+          <%= link_to 'Destroy　', picture, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Picture', new_picture_path %>
